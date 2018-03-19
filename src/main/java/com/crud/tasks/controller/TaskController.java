@@ -12,13 +12,13 @@ import java.util.List;
 @RequestMapping("/v1/task")
 public class TaskController {
 
-    @RequestMapping(method = RequestMethod.GET, value = "getTask")
-    public List<TaskDto> getTask(){
+    @RequestMapping(method = RequestMethod.GET, value = "getTasks")
+    public List<TaskDto> getTasks(){
         return new ArrayList<>();
     }
-    @RequestMapping(method = RequestMethod.GET, value = "taskId")
+    @RequestMapping(method = RequestMethod.GET, value = "getTask")
     public TaskDto getTask(String taskId) {
-        return new TaskDto((long) 1,"tes_title","test_content");
+        return new TaskDto((long) 1,"test_title","test_content");
     }
     @RequestMapping(method = RequestMethod.DELETE, value = "deleteTask")
     public void deleteTask(String taskId){
