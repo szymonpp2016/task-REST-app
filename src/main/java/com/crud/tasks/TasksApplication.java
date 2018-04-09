@@ -13,8 +13,8 @@ public class TasksApplication extends SpringBootServletInitializer{
 		SpringApplication.run(TasksApplication.class, args);
 	}
 
-	@Override
- 	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
- 	return application.sources(TasksApplication.class);
- }
+//	@Override    //zahasowane od modułu 17.5 serwer heroku
+ //	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
+ //	return application.sources(TasksApplication.class);
+ //}
 }
