@@ -1,0 +1,244 @@
+OK ten plik ma za zadanie zebrac przydatne sprawy do szukania roboty :) -czyli wszytsko z czym bardziej lub mniej zetknęłismy sie na kodilli
+ogólnie Andrzej - dopisuj do tego co uważasz i ewentaulnie poprawiaj błedy jełsi masz chwile oczywiscie
+
+podział na:
+
+1. Definicje i Technologie
+2. Technologie
+3. Oprogramowanie i serwery aplikacji
+4. Skrypty i komendy
+5. Nazwy firm / polecnaych we wro
+6. Pytania na rozmowach kwalifikacyjnych
+
+
+1. Definicje i Technologie
+
+REST -       Najprościej rzecz ujmując, REST jest zbiorem reguł, których powinien przestrzegać programista.
+             Z kolei w ujęciu bardziej technicznym, jest to wzorzec architektury
+             oprogramowania, który opisuje jak operować zapytaniami   do API i wprowadza zestaw dobrych praktyk.
+             REST ułatwia    obsługę żądań i odpowiedzi w nowy i łatwiejszy sposób,
+             bez konieczności odwoływania się do złożonych    dokumentacji
+
+UML -       Językiem pozwalającym tworzyć modele systemów (np. informatycznych)
+            Pozwala obrazować, specyfikować, tworzyć i dokumentować elementów systemu
+            Ułatwia wymianę informacji pomiędzy przyszłymi użytkownikami systemu,
+            menadżerami, analitykami, projektantami, programistami i testerami
+            Ułatwia wykorzystanie zalet programowania obiektowego
+            UML jest jedynie językiem modelowania używanym w procesie analizy i projektowania systemów komputerowych
+
+SDK -       SDK to z kolei akronim dla Software Development Kit, czyli Pakiet Twórcy Oprogramowania.
+            SDK jest pojęciem ogólnym i oznacza zestaw narzędzi używany do programowania przy użyciu pewnej – dowolnej
+            – technologii czy języka programowania. W szczególności więc możemy powiedzieć, że JDK to Java SDK.
+            JDK jest szczególnym przypadkiem SDK. JDK to SDK dla języka Java.
+
+JVM -       to akronim dla Java Virtual Machine, tj. Wirtualna Maszyna Javy. Aby aplikacja napisana w języku
+            Java mogła być uruchomiona, pliki zawierające kod źródłowy muszą być skompilowane.
+            Kompilacja polega na przetłumaczeniu programu napisanego w Javie na kod wykonywalny, tzw. Bytecode.
+            Kompilację wykonujemy przy użyciu specjalnego narzędzia, tzw. kompilatora.
+
+JRE -        to akronim dla Java Runtime Environment, tj. Środowisko Uruchomieniowe Javy.
+            JRE składa się z Wirtualnej Maszyny Javy (tzn. zawiera JVM) oraz zestawu klas
+            i narzędzi niezbędnych dla uruchamiania programów napisanych w Javie.
+
+JDK -        to akronim dla Java Development Kit, tj. Pakiet Programisty Javy. JDK zawiera
+             Środowisko Uruchomieniowe Javy (tzn. JRE) oraz narzędzia niezbędne do implementacji
+             i kompilacji aplikacji napisanych w języku Java.
+
+JDBC -       (ang. Java DataBase Connectivity - łącze do baz danych w języku Java) – interfejs programowania
+              opracowany w 1996 r. przez Sun Microsystems, umożliwiający niezależnym od platformy aplikacjom napisanym
+              w języku Java porozumiewanie się z bazami danych za pomocą języka SQL.
+               Interfejs ten jest odpowiednikiem standardu ODBC opracowanego przez SQL Access Group.
+              jest to interfejs pozwalający na ustanowienie połączenia do bazy danych z poziomu aplikacji napisanej
+              w Javie. Biblioteki, których potrzebujemy, zawierają pakiety java.sql.* i są w taki sam sposób dostępny \
+              jak  kolekcje w pakietach java.util.*
+
+Java EE -   Java Enterprise Edition jest to platforma programistyczna języka Java służąca do pisania aplikacji
+            biznesowych. Posiada wszystkie zalety języka Java SE, dzięki czemu jest w pełni przenośna i może być
+            implementowana na dowolnym systemie operacyjnym posiadający wirtualną maszynę Javy.
+            Jave EE tak naprawdę tylko rozszerza wersje SE o komponenty (interfejsy) sieciowe,
+             umożliwiające pisanie aplikacji o przeznaczeniu komercyjnym.
+
+JSP / JSF -Zarówno JSP, jak i JSF mają ten sam cel - tworzenie dynamicznych stron.
+           W JSF masz komponenty, które mają "cykl życia" podzielony na fazy.
+           Wiele rzeczy które w JSF dzieją się automatycznie, w JSP trzeba obsługiwać to ręcznie.
+           Różnica pomiędzy JSP, a JSF jest trochę jak różnica pomiędzy C (JSP) i C++ (JSF).
+
+CI -       Ciągła Integracja (ang. Continuous Integration) to praktyka programistyczna,
+           w której członkowie zespołu często scalają wyniki swojej pracy –
+           z reguły każdy robi to przynajmniej raz dziennie. W tej sposób każdego dnia powstaje kilka zintegrowanych
+           wersji kodu, które są sprawdzane przez automatyczny proces budowania (i testowania).
+           dostarczanie oprogramowania o wiele szybciej,
+           mniej błędów (błędy wyłapywane są na wczesnym etapie – tańsze w naprawie),
+           duże możliwości automatyzacji (np. budowanie wielu wersji aplikacji),
+           zmniejszone ryzyko niepowodzenia projektu,
+           kontrola nad stanem projektu (częste wykonywanie testów potwierdzające zgodność projektu z założeniami),
+           ciągły dostęp do najnowszej zbudowanej wersji (przydatne dla testerów),
+           możliwość generowania statystyk,
+           powtarzalność procesu.
+
+XML -       eXtensible Markup Language (rozszerzalny język znaczników, zaprojektowany przez World Wide Web Consortium) ma inne zadanie.
+            Przede wszystkim nie jest to język do tworzenia dokumentów, lecz język do tworzenia innych języków.
+             Dopiero te języki służą do budowania dokumentów w Internecie. Języki takie nazywamy aplikacjami
+             XML - zapewne wszystkim znana jest choćby nazwa MathML, czyli aplikacji XML służącej
+             do tworzenia dokumentów zawierających formuły matematyczne. Inną znaną aplikacją jest
+             WAP do wyświetlania internetowej informacji w telefonach komórkowych. Są takie narzędzia,
+             jak GedML (obsługa danych genealogicznych), MusicML (notacja muzyczna), VoiceML (dane głosowe),
+              ThML (teksty teologiczne), VML i SVG (grafika wektorowa), XMLNews (wymiana aktualnych wiadomości),
+               RSS (kanały informacyjne) i inne. Aplikacji takich powstało mnóstwo i są to języki służące biznesowi,
+               naukowcom, wyspecjalizowanym mediom itd.
+
+
+
+3. Oprogramowanie i serwery aplikacji
+
+a) Srodowiska programistyczne
+- IntelliJJ IDEA  (commercial)
+- ECLIPSE (free)
+(inne nie uzywane przez nas -(tylko nazwy):....)
+
+b) System kontroli wersji
+
+GITHUB -    hostingowy serwis internetowy przeznaczony dla projektów programistycznych wykorzystujących system kontroli
+            wersji Git. Stworzony został przy wykorzystaniu frameworka Ruby on Rails i języka Erlang.
+            Serwis działa od kwietnia 2008 roku[1]. W kwietniu 2011 ogłoszono, iż GitHub obsługuje 2 miliony repozytoriów[2].
+            Github udostępnia darmowy hosting programów open source oraz płatne prywatne repozytoria.)
+           (inne nie uzywane przez nas -(tylko nazwy):....)
+
+INNE:
+
+a) Apache HTTP-  (Apache HTTP serwer jest programem który pracuje w tle. Jego głównym zadaniem jest komunikacja
+            poprzez sieć używając protokołu TCP/IP. Przy uruchumieniu jego zachowanie jest ustawiane poprzez
+            pliki konfiguracjyne. W stanie bezczynności słucha on adresów IP które ma podane w pliku httpd.conf.
+            W wypadku gdy na którychś z nich przyjdzie zapytanie, analizuje znajdujące się w nim
+            nagłówki i podąża za wytycznymi odpowiadającymi tym nagłówkom znajdującym się w pliku konfiguracyjnym.
+            Dla zapytań statycznych (w formie URL) "tłumaczy" on to zapytanie na odpowiedni plik
+            znajdujący się na jego dysku lokalnym i wysyła go przez internet klientowi użytkownika
+            (zazwyczaj przeglądarce internetowej). W przypadku zapytania dynamicznego uruchamia odpowiedni program z
+            przesłanymi informacjami i po jego wykonaniu wysyła output tego programu do jednostki która to zapytanie wysłała.
+            Jeśli w jakimś przypadku serwer nie będzie w stanie przerobić zapytania
+            użytkownika to wyśle mu odpowiedni komunikat błędu)
+
+b) GLIFFY -  Gliffy to usługa webowa, której zadaniem jest wspieranie osób zainteresowanych tworzeniem profesjonalnie
+             wyglądających diagramów, wykresów, rysunków technicznych oraz innych tego rodzaju elementów do prezentacji.)
+
+c)GRADLE  -  Narzędzia do budowania projektów
+            jest narzędziem służącym do budowania projektów1. Pozwala ono na zautomatyzowanie tego procesu.
+            Używa się do tego tak zwanego języka domenowego - DSL (ang. Domain Specific Language), który ułatwia
+            wykonywanie standardowych zadań związanych z budowaniem projektu.)
+            (inne nie uzywane przez nas -(tylko nazwy): Ant, Maven, Ivy, Make czy Buildr. )
+
+d) HEROKU - Zgodnie z tym co napisano na stronie “About” serwisu Heroku,
+            jest to oparta o kontenery platforma do hostowania aplikacji w chmurze
+            ang. Platform as a Service czyli PaaS). Usługa ta umożliwia łatwy deployment,
+            zarządzanie oraz skalowanie nowoczesnych aplikacji internetowych.)
+
+e) HTML Edytors (Edytory HTML można podzielić na dwie podstawowe klasy:
+            edytory pracujące w trybie tekstowym i edytory pracujące w trybie graficznym.
+            Mianem edytorów pracujących w trybie tekstowym określamy
+            programy, które pozwalają pracować bezpośrednio z kodem HTML,
+            wyświetlając tekst dokumentu i kody sterujące .
+            Pierwszym edytorem Hipertekstu był program World Wide Web autorstwa Timothy'ego
+            Bernersa-Lee, twórcy WWW.
+
+notatnik++
+kompozer
+
+f) MAMP  -  (Darmowy zestaw oprogramowania MAMP służy do lokalnego uruchamiania dynamicznych stron WWW -org. głownie MAC)
+
+g) MySQL - (MySQL rozwijany jest przez firmę Oracle.
+            MySQL to najpopularniejszy system do zarządzania relacyjnymi bazami danych. ...
+            Połączenie możliwości języka skryptowego PHP i baz danych MySQL, pozwala na
+            budowanie zaawansowanych witryn WWW,Głównym przeznaczeniem systemu
+            MySQL jest szybkość, a nie kompatybilność ze standardem SQL.
+            Dlatego też przez większość czasu MySQL nie był zdolny do
+            obsługiwania transakcji, podstawowej funkcji SQL.
+            Obecnie jednak obsługuje on większość z możliwości zawartych w standardzie ANSI/ISO SQL.
+            Ponadto wprowadza on także wiele własnych rozszerzeń i
+            elementów składowych języka.Najnowsza 5. wersja systemu wprowadziła procedury składniowe, wyzwalacze, widoki,
+            kursory oraz partycjonowanie tabel i harmonogram zadań, co sprawia, że system MySQL
+            stał się bardzo uniwersalnym narzędziem i środowiskiem pracy.)
+
+h) POSTMAN -(Postman jest bezpłatnym narzędziem, które możemy wykorzystać do testów API.
+            Postman został stworzony do wsparcia wszystkich aspektów rozwoju API.
+            Głównymi jego użytkownikami są programiści, jednak w pracy testera często się do niego odwołujesz.
+            Dzięki niemu testujesz w całkiem łatwy i przyjemny sposób przesyłane requesty i responsy,
+            bez użycia GUI testowanej aplikacji.   )
+
+i) PUTTY    bezpłatny program będący klientem usług TELNET, SSH i rlogin, działający pod systemami operacyjnymi
+            Microsoft Windows oraz Unix/Linux, przeniesiony także m.in. na systemy Windows CE i Symbian.)
+
+i) SHU -    (Tworzony przez polaków program do przechwytywania obrazu, czyli SHU - linkuje screeny na neta od razu )
+
+k) Tomcat- (Serwer Tomcat to tak zwany Kontener Servletów, tj. oprogramowanie służące do uruchamiania aplikacji
+            WWW napisanych w Javie. Tomcat jest oprogramowaniem open-source, co oznacza że jest dostępny
+            nieodpłatnie, zarówno do użytku domowego,
+            jak i komercyjnego kontener aplikacji webowych (ang. „web container”) rozwijany w ramach projektu Apache.
+            Tomcat jest wykorzystywany w takich serwerach aplikacji JEE (J2EE) jak Apache Geronimo.
+            Jest również bardzo popularnym kontenerem dla samodzielnych aplikacji
+            (niewymagających pełnego serwera aplikacji) pisanych w środowisku Spring Framework.)g) Tomcat- (Serwer Tomcat to tak zwany Kontener Servletów, tj. oprogramowanie służące do uruchamiania aplikacji
+
+l) TRELLO -  Trello to nic innego, jak rozbudowana wirtualna tablica, na której możemy przyklejać listy z nowymi zadaniami.
+             Pod każdą listą możemy dodawać karty, w których określamy w dowolny sposób zadania i
+             przypisujemy do nich kolejnych użytkowników. Karty te oferują proste funkcje,
+             jak określenie tematu i jego opis, możemy też dodawać zadania, etykiety, komentarze czy pliki z naszego komputera.)
+
+POZA KODILLA:
+
+a) Jenkins - Jenkins to serwer ciągłej integracji, który jest używany do automatycznego testowania rozwiązań zadań.
+            automatyczne budowanie i publikowanie artefaktów w repozytorium jeśli aplikacja po pushu się buduje
+            automatyczne uruchamianie wszystkich testów -> ciekawe kto przy każdym lokalnym przekompilowaniu projektu
+            ma włączone wszystkie testy, w tym integracyjne ;)
+            Zauważ że to nie jest tak że lokalnie pracujesz nad jakimiś usprawnieniami i każdy build wysyłasz do CI,
+             bo to by było bez sensu i może się zdarzyc chyba tylko jeśli aplikacja to jakaś mega kobyła i zbudowanie
+             jej jest zbyt skomplikowane. Pracujesz lokalnie, ale kiedy uznasz ze coś jest "gotowe" to robisz push a
+             CI automatycznie zbuduje nową wersje systemu z twoimi zmianami i poinformuje cię jeśli wywaliły się jakieś
+             testy. Dla dużych aplikacji odpalenie wszystkich testów może trwać długi czas, stąd też programisci często
+             uruchamiaja tylko te, które w ich mniemaniu dotyczą tego nad czym pracowali.
+            Taska robisz przecież raz a potem sam sobie żyje.
+            Ustawiasz np. że co 20 min sprawdza nowe zmiany w repo i jak są to buduje i voila.
+             Spędziłeś całe 5 minut nad utworzeniem tego taska a teraz będzie działał automatycznie
+              jak tylko wrzucisz swoje zmiany do repo.
+
+
+
+b) SonarQube / CheckStyle -
+            Choć oba narzędzia bazują na tym samym podejściu — statycznej analizie kodu
+            (tj. analizie kodu źródłowego bez kompilowania go i uruchamiania) — są między nimi znaczące różnice.
+            Przede wszystkim Checkstyle jest biblioteką — możliwą do uruchomienia ‘w locie’
+            w trakcie budowania projektu, ale nie przechowującą żadnych informacji w czasie.
+            SonarQube jest bardziej systemem — wymaga instalacji zanim będziemy mogli go używać,
+            ale zapewnia jednocześnie komplet informacji (nie tylko o problemach, ale także o zmianach
+            — przykładowo: jakie problemy się pojawiły / jakie zostały rozwiązane od ostatniej zmiany).
+            Informacje te przechowuje w lokalnej bazie danych, z podziałem na projekty. SonarQube pozwala
+            także na analizę projektu jako całości, na co nie pozwala sam Checkstyle — może
+            np. znaleźć martwy kod, który nigdy nie jest wywoływany lub inne problemy,
+            które występują na przestrzeni kilku klas/pakietów.
+
+c)
+
+
+4. Skrypty i komendy
+
+
+
+
+
+
+5. Nazwy firm / polecnaych we wro
+
+
+
+
+
+6. Pytania na rozmowach kwalifikacyjnych
+
+-ogólnie jak rozumiem obiektowość, co to jest klasa, obiekt,
+-kolekcje - co to jest hashmapa, różnica między arraylist a linkedlist,
+-co to jest interfejs, klasa abstrakcyjna i różnice między nimi, co to jest polimorfizm,
+-co to jest niemutowalność obiektów i do czego to jest potrzebne,
+-troche z SQLa pytali, jakieś podstawowe działania typu jakie są joiny, jak bym napisał zapytanie żeby coś tam dostać,
+-o hibernte było pare pytań i ze springa ze 2 ale dokładnie już nie pamiętam co 😛,
+-plus czy znam jakieś komendy linuksa i czy wogóle pracowałem na nim, i z githuba różnica między merge a coś tam czego nigdy nie używałem 🙂
+
+
+
