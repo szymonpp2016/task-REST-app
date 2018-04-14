@@ -14,6 +14,7 @@ apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'org.springframework.boot'
 apply plugin: 'io.spring.dependency-management' //dane od modułu 17.5 - serwewr HEroku
+
 // apply plugin: 'war'   //dane tylko do tomcata wersja modulu 16-17
 
 group = 'com.crud'
@@ -31,9 +32,9 @@ dependencies {
 	testCompile('junit:junit:4.12')
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 	compile('org.projectlombok:lombok')
-	//compile('mysql:mysql-connector-java')  //dane tylko do mySQL tomcata wersja modulu 12-17
+	compile('mysql:mysql-connector-java')  //dane tylko do mySQL tomcata wersja modulu 12-17
 	//providedRuntime("org.springframework.boot:spring-boot-starter-tomcat") //dane tylko do tomcata wersja modulu 16-17
 
-	compile('org.postgresql:postgresql') //dane od modułu 17.5 - serwewr HEroku
-	compile('org.springframework.boot:spring-boot-starter-mail:1.5.7.RELEASE') //dane od modułu 17.5 - serwewr HEroku
+	//compile('org.postgresql:postgresql') //dane od modułu 17.5 - serwewr HEroku
+	//compile('org.springframework.boot:spring-boot-starter-mail:1.5.7.RELEASE') //dane od modułu 17.5 - serwewr HEroku
 }
