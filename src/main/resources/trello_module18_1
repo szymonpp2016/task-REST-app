@@ -1,0 +1,31 @@
+{
+   "id":"5aabd6de9e7c34d3d06b01a0",
+   "name":"Kodilla Application",
+   "desc":"",
+   "lists":[
+      {
+         "id":"5aabd6fa1e7711cfca1d17df",
+         "name":"Things to do",
+         "closed":false,
+         "idBoard":"5aabd6de9e7c34d3d06b01a0",
+         "pos":65535,
+         "subscribed":false
+      },
+      {
+         "id":"5aabd717a05944e245b59509",
+         "name":"Thinks I am working on",
+         "closed":false,
+         "idBoard":"5aabd6de9e7c34d3d06b01a0",
+         "pos":131071,
+         "subscribed":false
+      },
+      {
+         "id":"5aabd733c61873cf4b70dc20",
+         "name":"Thinks which I`ve done",
+         "closed":false,
+         "idBoard":"5aabd6de9e7c34d3d06b01a0",
+         "pos":196607,
+         "subscribed":false
+      }
+   ]
+}
