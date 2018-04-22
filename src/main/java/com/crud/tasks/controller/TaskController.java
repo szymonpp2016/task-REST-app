@@ -28,8 +28,8 @@ public class TaskController {
 
     }
     @RequestMapping(method = RequestMethod.GET, value = "getTasksById")
-    public TaskDto getTasksById(@RequestParam Long id){
-        return taskMapper.mapToTaskDto(service.getTaskById(id));
+    public TaskDto getTasksById(@RequestParam Long taskId){
+        return taskMapper.mapToTaskDto(service.getTaskById(taskId));
 
     }
     @RequestMapping(method = RequestMethod.GET, value = "getTask")
@@ -38,8 +38,8 @@ public class TaskController {
     }
 
     @RequestMapping(method = RequestMethod.DELETE, value = "deleteTask")
-    public void deleteTask(@RequestParam Long id){
-        service.deleteTask(id);
+    public void deleteTask(@RequestParam Long taskId){
+        service.deleteTask(taskId);
     }
     @RequestMapping(method = RequestMethod.PUT, value = "updateTask")
     public TaskDto updateTask(@RequestBody TaskDto taskDto){
