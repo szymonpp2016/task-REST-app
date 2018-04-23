@@ -19,7 +19,6 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 import java.util.List;
 
-
 @EnableSwagger2
 @Configuration
 public class CoreConfiguration implements WebMvcConfigurer{
@@ -48,36 +47,6 @@ public class CoreConfiguration implements WebMvcConfigurer{
     }  */
 
     @Override
-    public void configurePathMatch(PathMatchConfigurer configurer) {
-
-    }
-
-    @Override
-    public void configureContentNegotiation(ContentNegotiationConfigurer configurer) {
-
-    }
-
-    @Override
-    public void configureAsyncSupport(AsyncSupportConfigurer configurer) {
-
-    }
-
-    @Override
-    public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {
-
-    }
-
-    @Override
-    public void addFormatters(FormatterRegistry registry) {
-
-    }
-
-    @Override
-    public void addInterceptors(InterceptorRegistry registry) {
-
-    }
-
-    @Override
     public void addResourceHandlers(final ResourceHandlerRegistry registry) {
         // Required by Swagger UI configuration
         registry.addResourceHandler("/lib/**").addResourceLocations("/lib/").setCachePeriod(0);
@@ -88,48 +57,63 @@ public class CoreConfiguration implements WebMvcConfigurer{
     }
 
     @Override
-    public void addCorsMappings(CorsRegistry registry) {
+    public void configurePathMatch(PathMatchConfigurer configurer) {
+    }
 
+    @Override
+    public void configureContentNegotiation(ContentNegotiationConfigurer configurer) {
+    }
+
+    @Override
+    public void configureAsyncSupport(AsyncSupportConfigurer configurer) {
+    }
+
+    @Override
+    public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {
+    }
+
+    @Override
+    public void addFormatters(FormatterRegistry registry) {
+    }
+
+    @Override
+    public void addInterceptors(InterceptorRegistry registry) {
+    }
+
+    @Override
+    public void addCorsMappings(CorsRegistry registry) {
     }
 
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
-
     }
 
     @Override
     public void configureViewResolvers(ViewResolverRegistry registry) {
-
     }
 
     @Override
     public void addArgumentResolvers(List<HandlerMethodArgumentResolver> argumentResolvers) {
-
     }
 
     @Override
     public void addReturnValueHandlers(List<HandlerMethodReturnValueHandler> returnValueHandlers) {
-
     }
 
     @Override
     public void configureMessageConverters(List<HttpMessageConverter<?>> converters) {
-
     }
 
     @Override
     public void extendMessageConverters(List<HttpMessageConverter<?>> converters) {
-
     }
 
     @Override
     public void configureHandlerExceptionResolvers(List<HandlerExceptionResolver> exceptionResolvers) {
-
     }
 
     @Override
     public void extendHandlerExceptionResolvers(List<HandlerExceptionResolver> exceptionResolvers) {
-
     }
 
     @Override
