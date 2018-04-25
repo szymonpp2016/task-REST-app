@@ -1,6 +1,5 @@
 package com.crud.tasks.service;
 
-
 import com.crud.tasks.domain.Mail;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
