@@ -8,8 +8,9 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Getter
 @NoArgsConstructor
-@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonIgnoreProperties(ignoreUnknown = true)  //bez opsiania Jonson - autoamtycznie przypisuje nazwy
 public class TrelloCardDto {
+
     private String name;
     private String description;
     private String pos;

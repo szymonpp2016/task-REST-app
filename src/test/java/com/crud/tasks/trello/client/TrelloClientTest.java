@@ -91,7 +91,7 @@ public class TrelloClientTest {
                 "test_id"
         );
 
-        CreatedTrelloCard createdTrelloCard = new CreatedTrelloCard(
+        CreatedTrelloCardDto createdTrelloCardDto = new CreatedTrelloCardDto(
 
         //Given
                 "1",
@@ -99,10 +99,10 @@ public class TrelloClientTest {
                 "http://test.com",
                 new TrelloBadgesDto()
         ); //dodałem `obsługę` Badgest,  nie chiałem zakomentowac nim nie dasz znac że 18.3 ok.
-        when(restTemplate.postForObject(uriCrads, null, CreatedTrelloCard.class)).thenReturn(createdTrelloCard);
+        when(restTemplate.postForObject(uriCrads, null, CreatedTrelloCardDto.class)).thenReturn(createdTrelloCardDto);
 
         //When
-        CreatedTrelloCard newCard = trelloClient.createNewCard(trelloCardDto);
+        CreatedTrelloCardDto newCard = trelloClient.createNewCard(trelloCardDto);
 
         //Then
         assertEquals("1", newCard.getId());
@@ -114,7 +114,7 @@ public class TrelloClientTest {
     public void shouldReturnEmptyList() {
 
         //Given
-        when(restTemplate.postForObject(uriCrads, null, CreatedTrelloCard.class)).thenReturn(null);
+        when(restTemplate.postForObject(uriCrads, null, CreatedTrelloCardDto.class)).thenReturn(null);
 
         //When
         List<TrelloBoardDto> trelloBoardDto = trelloClient.getTrelloBoards();
