@@ -10,7 +10,7 @@ package com.crud.tasks.domain;
 @NoArgsConstructor
 @Getter
 @JsonIgnoreProperties(ignoreUnknown = true)
-class TrelloDto {
+public class TrelloDto {
 
     @JsonProperty("board")
     private String board;
