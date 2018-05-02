@@ -1,78 +1,99 @@
 package com.crud.tasks.controller;
 
-import com.crud.tasks.domain.TrelloBoard;
-import com.crud.tasks.domain.TrelloBoardDto;
-import com.crud.tasks.domain.TrelloList;
-import com.crud.tasks.domain.TrelloListDto;
-import com.crud.tasks.mapper.TrelloMapper;
-import com.crud.tasks.service.TrelloService;
+import com.crud.tasks.domain.*;
 import com.crud.tasks.trello.facade.TrelloFacade;
-import com.crud.tasks.trello.validator.TrelloValidator;
+import com.google.gson.Gson;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
-import org.mockito.runners.MockitoJUnitRunner;
+
+
+import org.mockito.ArgumentMatchers;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.http.MediaType;
+import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.test.web.servlet.MockMvc;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import static org.hamcrest.Matchers.hasSize;
+import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.when;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-@RunWith(MockitoJUnitRunner.class)
-
+@RunWith(SpringRunner.class)
+@WebMvcTest(TrelloController.class)
 public class TrelloControllerTest {
 
-    @InjectMocks
-    private TrelloController trelloController;
+    @Autowired
+    private MockMvc mockMvc;
 
-    @Mock
+    @MockBean
     private TrelloFacade trelloFacade;
-
-    @Mock
-    private TrelloService trelloService;
-
-    @Mock
-    private TrelloValidator trelloValidator;
-
-    @Mock
-    private TrelloMapper trelloMapper;
 
 
     @Test
-    public void getTrelloBoards() {
-        //Given
-
-        List<TrelloListDto> trelloLists = new ArrayList<>();
-        trelloLists.add(new TrelloListDto("1", "my_list", false));
-
+    public void test1shouldFetchEmptyTrelloBoards() throws Exception {
+        //given
         List<TrelloBoardDto> trelloBoards = new ArrayList<>();
-        trelloBoards.add(new TrelloBoardDto("1", "my_task", trelloLists));
-
-
         when(trelloFacade.fetchTrelloBoards()).thenReturn(trelloBoards);
-
-        //When
-        List<TrelloBoardDto> trelloBoardDtos = trelloController.getTrelloBoards();
-
-        //Then
-        assertNotNull(trelloBoardDtos);
-        assertEquals(1, trelloBoardDtos.size());
-
-        trelloBoardDtos.forEach(trelloBoardDto -> {
-            assertEquals("1", trelloBoardDto.getId());
-            assertEquals("my_task", trelloBoardDto.getName());
-
-            trelloBoardDto.getLists().forEach(trelloListDto -> {
-                assertEquals("1", trelloListDto.getId());
-                assertEquals("my_list", trelloListDto.getName());
-                assertEquals(false, trelloListDto.isClosed());
-            });
-        });
+        // when & then
+        mockMvc.perform(get("/v1/trello/getTrelloBoards").contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().is(200))
+                .andExpect(jsonPath("$", hasSize(0)));
     }
 
     @Test
-    public void createTrelloCard() {
+    public void test2shouldFetchTrelloBoards() throws Exception{
+        //given
+        List<TrelloListDto> trelloList = new ArrayList<>();
+        trelloList.add(new TrelloListDto("1","Test_List", false));
+
+        List<TrelloBoardDto> trelloBoards = new ArrayList<>();
+        trelloBoards.add(new TrelloBoardDto("1", "Test_Task", trelloList));
+
+        when(trelloFacade.fetchTrelloBoards()).thenReturn(trelloBoards);
+
+        // when & then
+        mockMvc.perform(get("/v1/trello/getTrelloBoards").contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk())
+                //trello boards fields
+                .andExpect(jsonPath("$", hasSize(1)))
+                .andExpect(jsonPath("$[0].id", is("1")))
+                .andExpect(jsonPath("$[0].name", is("Test_Task")))
+                //trello list finder
+                .andExpect(jsonPath("$[0].lists", hasSize(1)))
+                .andExpect(jsonPath("$[0].lists[0].id", is("1")))
+                .andExpect(jsonPath("$[0].lists[0].name", is("Test_List")))
+                .andExpect(jsonPath("$[0].lists[0].closed", is(false)));
+
+
+    }
+
+   @Test
+    public void test3shouldCreateTrelloCard() throws  Exception {
+        //given
+        TrelloCardDto trelloCardDto = new TrelloCardDto("Test_Card", "Card 1", "top", "1");
+
+        CreatedTrelloCardDto createTrelloCard = new CreatedTrelloCardDto("323", "test", "http://test.com",new TrelloBadgesDto());
+
+        when(trelloFacade.createCard(ArgumentMatchers.any(TrelloCardDto.class))).thenReturn(createTrelloCard);
+        Gson gson = new Gson();
+        String jsonContent = gson.toJson(trelloCardDto);
+
+        //when & then
+        mockMvc.perform(post("/v1/trello/createTrelloCard").contentType(MediaType.APPLICATION_JSON)
+                .characterEncoding("UTF-8")
+                .content(jsonContent))
+                .andExpect(jsonPath("$.id", is("323")))
+                .andExpect(jsonPath("$.name", is("test")))
+                .andExpect(jsonPath("$.shortUrl", is("http://test.com")));
+
     }
 }
