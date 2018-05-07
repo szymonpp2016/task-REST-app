@@ -30,9 +30,13 @@ repositories {
 dependencies {
 	compile('org.springframework.boot:spring-boot-starter-web') //spring
 	compile('org.springframework.boot:spring-boot-starter-data-jpa') //spring
+	compile('org.springframework.boot:spring-boot-starter-jdbc')
 	testCompile('junit:junit:4.12') //test
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 	testCompile group: 'org.mockito', name: 'mockito-core', version: '2.18.3'
+	//testCompile group: 'org.powermock', name: 'powermock-api-mockito', version: '1.7.4'
+	//testCompile group: 'org.powermock', name: 'powermock-module-junit4', version: '1.7.3'
+
 	compile('org.projectlombok:lombok') //lombok - adnotation
 	compile('mysql:mysql-connector-java')  //mySQL locally  //dane tylko do mySQL tomcata wersja modulu 12-17
 	//providedRuntime("org.springframework.boot:spring-boot-starter-tomcat") //dane tylko do tomcata wersja modulu 16-17
@@ -40,5 +44,7 @@ dependencies {
 	compile('org.springframework.boot:spring-boot-starter-mail:1.5.7.RELEASE') //mail dervice //dane od modułu 17.5 - serwewr HEroku
 	compile('io.springfox:springfox-swagger2:2.7.0') //Swagger DOCUMENT API
 	compile('io.springfox:springfox-swagger-ui:2.7.0')//Swagger DOCUMENT API
-	compile('com.google.code.gson:gson:2.8.3')
+	compile('com.google.code.gson:gson:2.8.3') //do JNOSN modul 21.3
+	compile('org.springframework.boot:spring-boot-starter-actuator') //do Spring Congig 21.4
+	compile('org.springframework.boot:spring-boot-starter-mail:1.5.9.RELEASE')
 }

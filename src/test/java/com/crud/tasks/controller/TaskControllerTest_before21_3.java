@@ -93,8 +93,6 @@ public class TaskControllerTest_before21_3 {
     }
 
 
-
-
     @Test
     public void updateTask() {
 
@@ -117,7 +115,8 @@ public class TaskControllerTest_before21_3 {
         //When
         Task task= new Task(1L, "test list", "aaaaaa");
         TaskDto taskDto = new TaskDto(1L, "test list", "aaaaaa");
-        when(service.saveTask(taskMapper.mapToTask(taskDto))).thenReturn(task);
+        when(taskMapper.mapToTask(taskDto)).thenReturn(task);
+        when(service.saveTask(task)).thenReturn(task);
 
         taskController.createTask(taskDto);
 

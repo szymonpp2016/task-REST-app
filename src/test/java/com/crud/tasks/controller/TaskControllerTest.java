@@ -57,8 +57,9 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
             Task task = new Task(1L,"test", "test_content");
 
             //when & then
-
-            when(taskMapper.mapToTaskDto(service.saveTask(taskMapper.mapToTask(taskDto)))).thenReturn(taskDto);
+            Optional<Task> optionalTask = Optional.of(task);
+            when(service.getTask(1L)).thenReturn(optionalTask);
+            when(taskMapper.mapToTaskDto(task)).thenReturn(taskDto);
             mockMvc.perform(get("/v1/task/getTask").param("taskId","1").contentType(MediaType.APPLICATION_JSON))
                     .andExpect(status().isOk())
                     .andExpect(jsonPath("$.id",is(1)))
@@ -66,14 +67,18 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
                     .andExpect(jsonPath("$.content", is("test_content")));
         }
 
+
+
         @Test
         public void test2GetTaskbyId() throws Exception {
             //given
             TaskDto taskDto = new TaskDto(1L, "test", "test_content");
+            Task task = new Task(1L,"test", "test_content");
 
             //when & then
-             when(taskMapper.mapToTaskDto(service.getTaskById(1L))).thenReturn(taskDto);
-            mockMvc.perform(get("/v1/task/getTaskById").param("taskId","1").contentType(MediaType.APPLICATION_JSON))
+            when(service.getTaskById(1L)).thenReturn(task);
+             when(taskMapper.mapToTaskDto(task)).thenReturn(taskDto);
+            mockMvc.perform(get("/v1/task/getTasksById").param("taskId","1").contentType(MediaType.APPLICATION_JSON))
                     .andExpect(status().isOk())
                     .andExpect(jsonPath("$.id",is(1)))
                     .andExpect(jsonPath("$.title", is("test")))
@@ -125,15 +130,20 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
             Task task = new Task(1L,"test", "something to do");
             TaskDto taskDto = new TaskDto(1L,"test", "something to do");
 
-            when(taskMapper.mapToTask(taskDto)).thenReturn(task);
+
             when(service.saveTask(ArgumentMatchers.any(Task.class))).thenReturn(task);
+            when(taskMapper.mapToTask(ArgumentMatchers.any(TaskDto.class))).thenReturn(task);
+
             Gson gson = new Gson();
             String jsonContent = gson.toJson(task);
+
             // when & then
             mockMvc.perform(post("/v1/task/createTask").contentType(MediaType.APPLICATION_JSON)
                     .content(jsonContent)
                     .characterEncoding("UTF-8"))
                     .andExpect(status().isOk());
+
+            verify(service,times(1)).saveTask(ArgumentMatchers.any(Task.class));
         }
 
         @Test
@@ -148,6 +158,18 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
                     .contentType(MediaType.APPLICATION_JSON))
                     .andExpect(status().isOk());
         }
+        @Test
+        public void test6BetterDeleteTask() throws Exception {
+
+            mockMvc.perform(delete("/v1/task/deleteTask").param("taskId","1")
+                    .contentType(MediaType.APPLICATION_JSON))
+                    .andExpect(status().isOk());
+
+
+            verify(service).deleteTask(1L);
+        }
+
+
 
 
     }

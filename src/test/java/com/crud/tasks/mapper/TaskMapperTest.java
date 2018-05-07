@@ -22,7 +22,7 @@ public class TaskMapperTest {
 
         //Then
         assertEquals(expectedId , fetchedTask.getId());
-        assertEquals("test task title", fetchedTask.getTitle());
+        assertEquals("test task title one", fetchedTask.getTitle());
         assertEquals("test task content", fetchedTask.getContent());
     }
 

@@ -32,8 +32,10 @@ public class TrelloClient {
 
     public List<TrelloBoardDto> getTrelloBoards() {
         try {
+
             //TrelloBoardDto[] boardsResponse = restTemplate.getForObject(creatUrl(), TrelloBoardDto[].class);
             // return Arrays.asList(Optional.ofNullable(boardsResponse).orElse(new TrelloBoardDto[0]));
+
             Optional<TrelloBoardDto[]> boardsResponse = Optional.ofNullable(restTemplate.getForObject(creatUrl(),
                     TrelloBoardDto[].class));
             return Arrays.asList(boardsResponse.orElse(new TrelloBoardDto[0]));
@@ -50,9 +52,10 @@ public class TrelloClient {
                 .queryParam("token", trelloConfig.getTrelloToken())
                 .queryParam("fields", "name,id")
                 .queryParam("lists","all").build().encode().toUri();
-        return url;  //dla czytelności pozostawiłem przekazywanie przez "return url" a nie "return Uri..."
-    }
+        return url;
 
+        //dla czytelności pozostawiłem przekazywanie przez "return url" a nie "return Uri..."
+    }
 
     public CreatedTrelloCardDto createNewCard(TrelloCardDto trelloCardDto) {
         URI url = UriComponentsBuilder.fromHttpUrl(trelloConfig.getTrelloApiEndpoint() + "/cards")

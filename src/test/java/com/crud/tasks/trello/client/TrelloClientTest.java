@@ -44,8 +44,12 @@ public class TrelloClientTest {
         when(trelloConfig.getTrelloApiEndpoint()).thenReturn("http://test.com");
         when(trelloConfig.getTrelloAppKey()).thenReturn("test");
         when(trelloConfig.getTrelloToken()).thenReturn("test");
-        when(trelloConfig.getTrelloUsername()).thenReturn("szymon.pp.2016@interia.pl"); // bład w kodilli - bo nie ma Mocka na to??
+        when(trelloConfig.getTrelloUsername()).thenReturn("szymon.pp.2016@interia.pl"); //
+
+        // bład w kodilli - bo nie ma Mocka na to??
         // when(uri).thenReturn( new URI("http://test.com/cards?key=test&token=test&name=Test%20task&desc=Test%20Description&pos=top&idList=test_id")); //zMockowanie sie nie udało - w sumie do obgadania
+
+
     }
     @After
     public void after() {
@@ -114,7 +118,9 @@ public class TrelloClientTest {
     public void shouldReturnEmptyList() {
 
         //Given
-        when(restTemplate.postForObject(uriCrads, null, CreatedTrelloCardDto.class)).thenReturn(null);
+        when(restTemplate.getForObject(uriBoards, TrelloBoardDto[].class)).thenReturn(null);
+
+
 
         //When
         List<TrelloBoardDto> trelloBoardDto = trelloClient.getTrelloBoards();
