@@ -47,4 +47,5 @@ dependencies {
 	compile('com.google.code.gson:gson:2.8.3') //do JNOSN modul 21.3
 	compile('org.springframework.boot:spring-boot-starter-actuator') //do Spring Congig 21.4
 	compile('org.springframework.boot:spring-boot-starter-mail:1.5.9.RELEASE')
+	compile('org.springframework.boot:spring-boot-starter-thymeleaf')//modul 24 thymself
 }
