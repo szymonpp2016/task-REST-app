@@ -3,23 +3,39 @@
 
 <head>
     <meta charset="UTF-8">  </meta>
-     <title>My welcome page</title>
+    <title>My welcome page</title>
+
+
+    <style>
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+    </style>
+
 </head>
 <body>
 <h1  align="center"> First impression of my page</h1>
 
-<h3 align="left">
+<h3 align="center">
 
-<!--/*@thymesVar id="variable" type="com.crud.tasks.controller.StaticWebPageController"*/-->
-<span th:text="${variable}"></span><br/>
-<nobr>A = </nobr> <span th:text="${one}"></span><br/>
-<nobr>B = </nobr> <span th:text="${two}"></span><br/>
+    <!--/*@thymesVar id="variable" type="com.crud.tasks.controller.StaticWebPageController"*/-->
+    <span th:text="${variable}"></span><br/>
+    <table style="width:50%" align="center" >
+        <tr>
+            <th>  <nobr>A = </nobr> <span th:text="${one}"></span><br/></th></tr>
+        <tr>  <th>  <nobr>B = </nobr> <span th:text="${two}"></span><br/></th></tr>
 
-<!--/*@thymesVar id="one" type="com.crud.tasks.controller.StaticWebPageController"*/-->
-<!--/*@thymesVar id="two" type="com.crud.tasks.controller.StaticWebPageController"*/-->
-<nobr>A + B = </nobr> <span th:text="${one}+${two}"></span><br/>
-<nobr>A - B = </nobr> <span th:text="${one}-${two}"></span><br/>
-<nobr>A * B = </nobr> <span th:text="${one}*${two}"></span><br/>
+    </table>
+    <br/>
+    <!--/*@thymesVar id="one" type="com.crud.tasks.controller.StaticWebPageController"*/-->
+    <!--/*@thymesVar id="two" type="com.crud.tasks.controller.StaticWebPageController"*/-->
+    <table style="width:50%" align="center">
+        <tr>
+            <th> <nobr>A + B = </nobr> <span th:text="${one}+${two}"></span><br/> </th></tr>
+        <tr>  <th><nobr>A - B = </nobr> <span th:text="${one}-${two}"></span><br/></th></tr>
+        <tr> <th><nobr>A * B = </nobr> <span th:text="${one}*${two}"></span><br/> </th></tr>
+    </table>
 </h3>
 
 <h1  align="center"> End of story....</h1>
