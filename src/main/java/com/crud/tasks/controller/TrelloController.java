@@ -11,7 +11,7 @@ import springfox.documentation.annotations.ApiIgnore;
 
 import java.util.List;
 
-@ApiIgnore
+//@ApiIgnore
 @CrossOrigin("*")
 @RestController
 @RequestMapping("/v1/trello")

@@ -30,7 +30,7 @@ public class TrelloServiceTest {
     private TrelloClient trelloClient;
 
     @Mock
-    private SimpleEmailService emailService;
+    private SimpleMailService emailService;
 
     @Test
     public void testFetchTrelloBoards() {
