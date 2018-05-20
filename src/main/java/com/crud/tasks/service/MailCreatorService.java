@@ -9,6 +9,8 @@ import org.springframework.stereotype.Service;
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.Context;
 
+import java.util.ArrayList;
+
 @Service
 public class MailCreatorService {
     @Autowired
@@ -30,19 +32,48 @@ public class MailCreatorService {
     @Value("${info.company.email}")
     private String companyEmail;
 
+    private Context context = new Context();
 
     public String buildTrelloCardEmail(String message) {
-        Context context = new Context();
+        ArrayList<String> functionality = new ArrayList<>();
+        functionality.add("You can manage your task");
+        functionality.add("Provides connection with Trello account");
+        functionality.add("Application allows sending task to Trello");
+
+        setContext();
         context.setVariable("message", message);
-        context.setVariable("task_url", "http://localhost:8888/trello_frontend");
-        context.setVariable("button", "Visit website");
-        context.setVariable("admin_name", adminConfig.getAdminMail()); // adminConfig.getAdminName());
         context.setVariable("goodbye", "Thank you for choosing us!");
+        context.setVariable("application_functionality", functionality);
+
+        return  templateEngine.process("mail/created-trello-card-mail", context);
+    }
+
+
+    public String buildSchedulerCardEmail(String message) {
+        ArrayList<String> schedulerFunctionality = new ArrayList<>();
+        schedulerFunctionality.add("Sending update every 10 hours");
+        schedulerFunctionality.add("Provides number of active tasks");
+
+        setContext();
+        context.setVariable("message", message);
+        context.setVariable("goodbye", "See you in 10 hours");
+        context.setVariable("application_functionality", schedulerFunctionality);
+
+        return templateEngine.process("mail/scheduled-one-day-email", setContext());
+    }
+
+
+    private Context setContext() {
+        context.setVariable("task_url", "http://localhost:8888/trello_frontend");
+        context.setVariable("admin_name", adminConfig.getAdminMail()); // adminConfig.getAdminName());
         context.setVariable("company_name", companyName);
         context.setVariable("company_phone", companyPhoneNumber);
         context.setVariable("company_email" , companyEmail);
-
-        return  templateEngine.process("mail/created-trello-card-mail", context);
-
+        context.setVariable("show_button",false );
+        context.setVariable("is_friend",false );
+        context.setVariable("admin_config",adminConfig );
+        context.setVariable("button", "Check Crud App");
+        context.setVariable("admin_name", adminConfig.getAdminMail());
+        return context;
     }
 }

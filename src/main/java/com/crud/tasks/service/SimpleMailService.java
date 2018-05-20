@@ -22,14 +22,24 @@ public class SimpleMailService {
     @Autowired
     private MailCreatorService mailCreatorService;
 
-    public void send(final Mail mail) {
-        LOGGER.info("Starting email preparation...");
+    public void sendWelcomeMail(final Mail mail) {
+        LOGGER.info("Starting Welcome email preparation...");
         try {
 
             javaMailSender.send(createMimeMessage(mail));
-            LOGGER.info("Email Thymeleaf has been sent.");
+            LOGGER.info("Welcome Email Thymeleaf has been sent.");
         } catch (MailException e) {
-            LOGGER.error("Failed to process email sending: ", e.getMessage(), e);
+            LOGGER.error("Failed to process Welcome email sending: ", e.getMessage(), e);
+        }
+    }
+
+    public void sendShedulerMail(final Mail mail) {
+        LOGGER.info("Starting Scheduler email preparation...");
+        try {
+            javaMailSender.send(createSheduleMimeMessage(mail));
+            LOGGER.info("Scheduler Email Thymeleaf has been sent.");
+        } catch (MailException e) {
+            LOGGER.error("Failed to process Scheduler email sending: ", e.getMessage(), e);
         }
     }
 
@@ -38,15 +48,15 @@ public class SimpleMailService {
         mailMessage.setTo(mail.getMailTo());
         mailMessage.setSubject(mail.getSubject());
         mailMessage.setText(mail.getMessage());
-    //    if (mail.getToCc()!=null) {
-     //       mailMessage.setCc(mail.getToCc());
-    //    }
+        //    if (mail.getToCc()!=null) {
+        //       mailMessage.setCc(mail.getToCc());
+        //    }
         return mailMessage;
     }
 
 
 
-    public MimeMessagePreparator createMimeMessage(final Mail mail) {
+    private MimeMessagePreparator createMimeMessage(final Mail mail) {
         return mimeMessage -> {
             MimeMessageHelper mimeMessageHelper = new MimeMessageHelper(mimeMessage);
             mimeMessageHelper.setTo(mail.getMailTo());
@@ -55,11 +65,21 @@ public class SimpleMailService {
         };
     }
 
-   /* public void send(final Mail mail) {  //klasa sen przed Thymself
+
+    private MimeMessagePreparator createSheduleMimeMessage(final Mail mail) {
+        return mimeMessage -> {
+            MimeMessageHelper mimeMessageHelper = new MimeMessageHelper(mimeMessage);
+            mimeMessageHelper.setTo(mail.getMailTo());
+            mimeMessageHelper.setSubject(mail.getSubject());
+            mimeMessageHelper.setText(mailCreatorService.buildSchedulerCardEmail(mail.getMessage()), true);
+        };
+    }
+
+   /* public void sendWelcomeMail(final Mail mail) {  //klasa sen przed Thymself
         LOGGER.info("Starting email preparation...");
         try {
             SimpleMailMessage mailMessage = createMailMessage(mail);
-            javaMailSender.send(mailMessage);
+            javaMailSender.sendWelcomeMail(mailMessage);
             LOGGER.info("Email has been sent.");
         } catch (MailException e) {
             LOGGER.error("Failed to process email sending: ", e.getMessage(), e);

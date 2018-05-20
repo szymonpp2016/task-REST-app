@@ -34,7 +34,7 @@ public class SimpleMailServiceTest {
 
 
         //When
-        simpleMailService.send(mail);
+        simpleMailService.sendWelcomeMail(mail);
 
         //Then
         verify(javaMailSender, times(1)).send(mailMessage);
