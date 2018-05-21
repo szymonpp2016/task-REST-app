@@ -51,8 +51,7 @@ public class TaskControllerTest_before21_3 {
         assertEquals  (1, mapedtaskDto.size());
     }
 
-
-   @Test
+ /*  @Test
     public void getTasksById() {
 
         TaskDto taskDto= new TaskDto(1L, "test list", "aaaaaa");
@@ -63,8 +62,7 @@ public class TaskControllerTest_before21_3 {
 
         //Then
         assertNotNull(mapedtaskDto);
-
-    }
+    } */
 
  /*   @Test
     public void getTask() throws TaskNotFoundException {

@@ -54,6 +54,16 @@ public class SimpleMailService {
         return mailMessage;
     }
 
+    public void sendStartMail(final Mail mail) {
+        LOGGER.info("Starting Welcome email preparation...");
+        try {
+
+            javaMailSender.send(createMailMessage(mail));
+            LOGGER.info("Welcome Email Thymeleaf has been sent.");
+        } catch (MailException e) {
+            LOGGER.error("Failed to process Welcome email sending: ", e.getMessage(), e);
+        }
+    }
 
 
     private MimeMessagePreparator createMimeMessage(final Mail mail) {

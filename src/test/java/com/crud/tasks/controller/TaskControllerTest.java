@@ -60,7 +60,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
             Optional<Task> optionalTask = Optional.of(task);
             when(service.getTask(1L)).thenReturn(optionalTask);
             when(taskMapper.mapToTaskDto(task)).thenReturn(taskDto);
-            mockMvc.perform(get("/v1/task/getTask").param("taskId","1").contentType(MediaType.APPLICATION_JSON))
+            mockMvc.perform(get("/v1/tasks/"+1).contentType(MediaType.APPLICATION_JSON))
                     .andExpect(status().isOk())
                     .andExpect(jsonPath("$.id",is(1)))
                     .andExpect(jsonPath("$.title", is("test")))
@@ -69,7 +69,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 
 
-        @Test
+     /*   @Test  //Delete becouse it was function ident.like getTask
         public void test2GetTaskbyId() throws Exception {
             //given
             TaskDto taskDto = new TaskDto(1L, "test", "test_content");
@@ -83,7 +83,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
                     .andExpect(jsonPath("$.id",is(1)))
                     .andExpect(jsonPath("$.title", is("test")))
                     .andExpect(jsonPath("$.content", is("test_content")));
-        }
+        } */
 
         @Test
         public void test3GetTasks() throws Exception {
@@ -94,7 +94,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
             when(taskMapper.mapToTaskDtoList(anyList())).thenReturn(taskDtoList);
 
             // When & Then
-            mockMvc.perform(get("/v1/task/getTasks").contentType(MediaType.APPLICATION_JSON))
+            mockMvc.perform(get("/v1/tasks").contentType(MediaType.APPLICATION_JSON))
                     .andExpect(status().isOk())
                     .andExpect(jsonPath("$", hasSize(1)))
                     .andExpect(jsonPath("$[0].id", is(1)))
@@ -115,7 +115,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
             Gson gson = new Gson();
             String jsonContent = gson.toJson(task);
             // when & then
-            mockMvc.perform(put("/v1/task/updateTask").contentType(MediaType.APPLICATION_JSON)
+            mockMvc.perform(put("/v1/tasks").contentType(MediaType.APPLICATION_JSON)
                     .content(jsonContent)
                     .characterEncoding("UTF-8"))
                     .andExpect(status().isOk())
@@ -138,7 +138,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
             String jsonContent = gson.toJson(task);
 
             // when & then
-            mockMvc.perform(post("/v1/task/createTask").contentType(MediaType.APPLICATION_JSON)
+            mockMvc.perform(post("/v1/tasks").contentType(MediaType.APPLICATION_JSON)
                     .content(jsonContent)
                     .characterEncoding("UTF-8"))
                     .andExpect(status().isOk());
@@ -154,14 +154,14 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
             when(service.getTaskById(task.getId())).thenReturn(task);
             doNothing().when(service).deleteTask(1L);
             //when & then
-            mockMvc.perform(delete("/v1/task/deleteTask").param("taskId","1")
+            mockMvc.perform(delete("/v1/tasks/"+1)
                     .contentType(MediaType.APPLICATION_JSON))
                     .andExpect(status().isOk());
         }
         @Test
         public void test6BetterDeleteTask() throws Exception {
 
-            mockMvc.perform(delete("/v1/task/deleteTask").param("taskId","1")
+            mockMvc.perform(delete("/v1/tasks/"+1)
                     .contentType(MediaType.APPLICATION_JSON))
                     .andExpect(status().isOk());
 
